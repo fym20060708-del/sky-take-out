@@ -37,3 +37,8 @@ sky:
     admin-ttl: 86400000
     # 设置前端传递过来的令牌名称
     admin-token-name: token
+  alioss:
+    access-key-id: ${ALIOSS_ACCESS_KEY_ID}
+    secret-access-key: ${ALIOSS_SECRET_ACCESS_KEY}
+    bucket-name: ${ALIOSS_BUCKET_NAME}
+    endpoint: ${ALIOSS_ENDPOINT}
