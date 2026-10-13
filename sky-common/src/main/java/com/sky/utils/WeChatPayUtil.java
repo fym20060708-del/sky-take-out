@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.sky.properties.WeChatProperties;
 import com.wechat.pay.contrib.apache.httpclient.WechatPayHttpClientBuilder;
 import com.wechat.pay.contrib.apache.httpclient.util.PemUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.RandomStringUtils;
 import org.apache.http.HttpHeaders;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -33,6 +34,7 @@ import java.util.List;
  * 微信支付工具类
  */
 @Component
+@Slf4j
 public class WeChatPayUtil {
 
     //微信支付下单接口地址
@@ -91,6 +93,9 @@ public class WeChatPayUtil {
         CloseableHttpResponse response = httpClient.execute(httpPost);
         try {
             String bodyAsString = EntityUtils.toString(response.getEntity());
+            // ==========新增日志，打印微信返回内容==========
+            log.info("微信退款接口响应码：{}", response.getStatusLine().getStatusCode());
+            log.info("微信退款接口返回原始报文：{}", bodyAsString);
             return bodyAsString;
         } finally {
             httpClient.close();

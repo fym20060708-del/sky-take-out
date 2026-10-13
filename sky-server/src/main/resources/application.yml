@@ -61,5 +61,9 @@ sky:
     weChatPayCertFilePath: ${sky.wechat.weChatPayCertFilePath} # 微信平台证书路径（wechatpay_xxx.pem）
     notifyUrl: ${sky.wechat.notifyUrl}              # 支付成功回调地址（用cpolar的https公网地址）
     refundNotifyUrl: ${sky.wechat.refundNotifyUrl}  # 退款回调地址
+  shop:
+    address: ${sky.shop.address}
+  baidu:
+    ak: ${sky.baidu.ak}
 
 
